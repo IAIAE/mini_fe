@@ -1,4 +1,14 @@
-#Reducer structure in this boilerplate
+# how-to
+```
+npm install
+npm run itemlist  # for itemlist page
+npm run itemdetail # for itemDetail page
+```
+
+# 异步调用
+异步调用全部用redux-promise来完成就行了。ajax模块用的fetch。
+
+# reducer的写法
 just for mini. FYI
 
 ```javascript
