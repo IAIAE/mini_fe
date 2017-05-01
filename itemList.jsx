@@ -20,4 +20,4 @@ var app = ReactDOM.render(
     document.getElementById('root')
 );
 
-      // {__DEV__ && DEV_TOOL && <DevTool />}
+    // {__DEV__ && DEV_TOOL && <DevTool />}

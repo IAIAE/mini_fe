@@ -3,18 +3,16 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import CONSTANT from '../util/constant.js';
 // import assume from 'react-component-assume';
-import {getItemListAction} from '../action/itemListAction'
-
-import CareItem from './CareItem.jsx'
-
+import {getItemAction} from '../action/itemAction'
+import {getParameterByName} from '../util/sugar.js'
 // var AnimationView = assume(true && TodoList);
 
-import {divmain } from './RootView.scss'
+import { divmain, imageWrapper, info } from './RootView.scss'
 
 class RootView extends Component{
     constructor(props){
         super(props);
-        this.props.getItemListAll();
+        this.props.getItem(getParameterByName('_d')||'');
     }
     componentWillMount(){
         // console.info('rootview componentWillMount');
@@ -36,7 +34,9 @@ class RootView extends Component{
         // console.info('rootview componentDidUpdate');
     }
     render(){
-        const {itemList, fetching} = this.props;
+        const {item, fetching} = this.props,
+            {itemName, itemDesc, imgUrl, status, itemId, operateTime} = item;
+        
         if(fetching === 'fetching' || fetching === 'init'){
             return <div>fetching</div>
         }
@@ -45,15 +45,15 @@ class RootView extends Component{
         }
         // fetching === 'success'
         return <div className={divmain}>
-            <ul>
-                {
-                itemList.map((item, index)=>
-                <li key={index}
-                    className={null}>
-                    <CareItem {...item} />
-                </li>)
-                }
-            </ul>
+            <div className={imageWrapper}>
+                <img src={imgUrl} />
+            </div>
+            <div className={info}>
+                <div>{itemName}</div>
+                <div>{itemDesc}</div>
+                <div>{status}</div>
+                <div>{operateTime}</div>
+            </div>
         </div>
     }
 }
@@ -63,9 +63,9 @@ var mapStateToProps = (state)=>{
 };
 
 var mapDispatchToProps = (dispatch) => bindActionCreators({
-    getItemListAll(){
-        return getItemListAction(dispatch);
+    getItem(id){
+        return getItemAction(dispatch, id);
     }
 },dispatch);
 
-export default connect(mapStateToProps,mapDispatchToProps)(RootView);
+export default connect(mapStateToProps, mapDispatchToProps)(RootView);

@@ -1,14 +1,13 @@
 import {combineReducers} from 'redux';
 import {takeWhileTrue} from '../util/sugar.js';
-import {listSetAllCase, listSetCase} from './cases/itemListCases.js'
+import {itemSetCase} from './cases/itemCase.js'
 import { fetchingCase, fetchFailCase, fetchSuccess} from './cases/pageFetchingCases.js'
 import CONSTANT from '../util/constant.js'
 
 
-var itemList = (state = CONSTANT.defaultList, action) => {
+var item = (state = CONSTANT.defaultItem, action) => {
     var nextState = takeWhileTrue(
-        listSetAllCase,
-        listSetCase
+        itemSetCase
         )(state, action);
     return nextState === false?state:nextState;
 };
@@ -23,6 +22,6 @@ var fetching = (state = 'init', action) => {
 
 var appReducer = combineReducers({
     fetching,
-    itemList
+    item
 });
 export default appReducer;

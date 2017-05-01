@@ -3,7 +3,7 @@ import {actionTypeIn, actionTypeIs} from '../actionType.js';
 import {listItemReducer} from '../reducers/itemList/itemReducer.js';
 
 var listSetAllCase = (state, action)=>{
-    return actionTypeIs(action.type, SET_ITEM_LIST_ALL) && [...action.payload];
+    return actionTypeIs(action.type, SET_ITEM_LIST_ALL) && [...action.payload.itemList];
 }
 var listSetCase  = (state, action)=>{
     if(actionTypeIn(action.type, SET_ITEM)){

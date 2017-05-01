@@ -11,7 +11,7 @@ module.exports = {
   context: path.join(__dirname, './'),
   entry: {
     itemlist: path.join(__dirname, './itemList.jsx'),
-    // itemdetail: path.join(__dirname, './itemDetail.jsx'),
+    itemdetail: path.join(__dirname, './itemDetail.jsx'),
     vendor: [
       'redux',
       'react',

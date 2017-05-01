@@ -10,13 +10,13 @@ import {itemRoot, itemInfo, itemStatus} from './CareItem.scss'
 
 class CareItem extends Component{
     render(){
-        const {imgsrc, name, desc, status} = this.props;
+        const {imgUrl, itemName, itemDesc, status, itemId, operateTime} = this.props;
 
         return <div className={itemRoot}>
-            <img src={imgsrc} />
+            <img src={imgUrl} />
             <div className={itemInfo}>
-                <div className="name">{name}</div>
-                <div className="desc">{desc}</div>
+                <div className="name">{itemName}</div>
+                <div className="desc">{itemDesc}</div>
             </div>
             <div className={itemStatus}>{CONSTANT.itemStatusMap[status]}</div>
         </div>
