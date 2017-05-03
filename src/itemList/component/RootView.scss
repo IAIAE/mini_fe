@@ -1,3 +1,30 @@
+html,body{
+    height: 100%;
+    font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+
+}
 .divmain{
-  
+    height: 100%;
+    background-color: #f8f8fa;
+    .list{
+        height: 100%;
+        border: solid #f8f8fa 1px;
+        border-radius: 15px;
+        padding:2vw 4vw;
+        list-style-type:none;
+        li{
+            //margin-bottom: 2vw;
+        }
+    }
+}
+
+.header{
+    height: 10vh;
+    background-color: #0fd874;
+    color: #fff;
+    font-size: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

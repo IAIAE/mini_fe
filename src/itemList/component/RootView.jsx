@@ -9,7 +9,7 @@ import CareItem from './CareItem.jsx'
 
 // var AnimationView = assume(true && TodoList);
 
-import {divmain } from './RootView.scss'
+import {divmain, header, list} from './RootView.scss'
 
 class RootView extends Component{
     constructor(props){
@@ -45,7 +45,8 @@ class RootView extends Component{
         }
         // fetching === 'success'
         return <div className={divmain}>
-            <ul>
+            <div className={header}>我的心愿单</div>
+            <ul className={list}>
                 {
                 itemList.map((item, index)=>
                 <li key={index}

@@ -1,27 +1,45 @@
+body {
+    background-color: #f8f8fa;
+}
 .itemRoot {
+    border-bottom: solid lightgray 1px;
+    background-color: #fff;
     display: flex;
-    height: 200px;
-    padding: 0 20px;
+    height: 20vw;
+    padding: 4vw 4vw;
     img {
-        height: 100%;
+        height: 20vw;
+        width: 20vw;
     }
-    border-bottom: 1px solid #DADADA;
-}
+    .itemInfo {
+        flex: 1;
+        font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+        .name {
+            font-size: 5vw;
+            font-weight: 200;
+            color: #4a4a4b;
+        }
+        .desc {
+            font-size: 3vw;
+            color: lightgray;
+        }
+        .itemStatus {
+            span {
+                color: grey;
+            }
+            color: grey;
+            font-size: 3vw;
+            .colorGreen {
+                color: #00d97a;
+            }
+            .colorYellow {
+                color: #fdba27;
+            }
+            .colorRed {
+                color: #ff3b44;
+            }
+        }
+    }
 
-.itemInfo {
-    flex: 1;
-    font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
-    .name {
-        font-size: 15px;
-    }
-    .desc {
-        color: lightgray;
-    }
-}
 
-.itemStatus {
-    color: dodgerblue;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
 }
