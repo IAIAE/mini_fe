@@ -1,0 +1,36 @@
+{
+    "itemList": [
+        {
+            "itemId":"123123",
+            "itemName":"我是123物品1",
+            "itemDesc":"我是物品1的描述",
+            "imgUrl":"http://now.qq.com/item1.jpg",
+            "itemStatus":"0",
+            "operateTime":"2016.05.01 12:01"
+        },
+        {   
+            "itemId":"123124",
+            "itemName":"我是物品2",
+            "itemDesc":"我是物品2的描述",
+            "imgUrl":"http://now.qq.com/item2.jpg",
+            "itemStatus":"0",
+            "operateTime":"2016.05.01 12:01"
+        },
+        {
+            "itemId":"123125",
+            "itemName":"我是物品3",
+            "itemDesc":"我是物品3的描述",
+            "imgUrl":"http://now.qq.com/item3.jpg",
+            "itemStatus":"1",
+            "operateTime":"2016.05.01 12:01"
+        },
+        {
+            "itemId":"123126",
+            "itemName":"我是物品4",
+            "itemDesc":"我是物品4的描述",
+            "imgUrl":"http://now.qq.com/item4.jpg",
+            "itemStatus":"2",
+            "operateTime":"2016.05.01 12:01"
+        }
+    ]
+}

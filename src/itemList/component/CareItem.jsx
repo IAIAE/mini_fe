@@ -6,7 +6,7 @@ import CONSTANT from '../util/constant.js';
 
 // var AnimationView = assume(true && TodoList);
 
-import {itemRoot, itemInfo, itemStatus} from './CareItem.scss'
+import './CareItem.scss'
 
 class CareItem extends Component{
     render(){
