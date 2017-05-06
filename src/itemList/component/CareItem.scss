@@ -10,9 +10,12 @@ body {
     img {
         height: 20vw;
         width: 20vw;
+        margin-right: 2vw;
     }
     .itemInfo {
-        flex: 1;
+        display: flex;
+        flex-direction:column;
+        justify-content: space-between;
         font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
         .name {
             font-size: 5vw;
@@ -26,9 +29,10 @@ body {
         .itemStatus {
             span {
                 color: grey;
+                margin-right: 2vw;
             }
             color: grey;
-            font-size: 3vw;
+            font-size: 3.2vw;
         }
         .colorGreen {
             color: #00d97a;
@@ -38,6 +42,9 @@ body {
         }
         .colorRed {
             color: #ff3b44;
+        }
+        .colorGrey {
+            color: #999;
         }
     }
 

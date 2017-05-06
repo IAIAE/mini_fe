@@ -24,7 +24,7 @@ class CareItem extends Component{
                 color = 'colorYellow'; //进行中
                 break;
             case 2:
-                color = 'colorRed'; //已完成
+                color = 'colorGrey'; //已完成
                 break;
             default:
                 break;
