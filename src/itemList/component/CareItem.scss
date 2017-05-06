@@ -15,12 +15,18 @@ body {
         margin-right: 2vw;
     }
     .rightArrowContainer {
-        flex:1;
         height: 20vw;
         width: 10vw;
+        div{
+          line-height: 20vw;
+          img{
+            vertical-align: middle;
+          }
+        }
     }
     .itemInfo {
         display: flex;
+        flex: 1;
         flex-direction:column;
         justify-content: space-between;
         font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";

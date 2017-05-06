@@ -11,7 +11,7 @@ import {getParameterByName} from '../util/sugar.js'
 
 // var AnimationView = assume(true && TodoList);
 
-import {divmain, header, list} from './RootView.scss'
+import {divmain, header, list, holder, footNoMore} from './RootView.scss'
 
 class RootView extends Component{
     constructor(props){
@@ -56,15 +56,16 @@ class RootView extends Component{
                 }
             </div>
             <ul className={list}>
+                <div className={holder}></div>
                 {
                 itemList.map((item, index)=>
                 <li key={index}
                     className={null}
-                   
                     >
                     <CareItem {...item}/>
                 </li>)
                 }
+                <li className={footNoMore}> &gt; __ &lt;   没有更多了...</li>
             </ul>
         </div>
     }

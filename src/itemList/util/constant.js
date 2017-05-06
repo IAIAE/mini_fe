@@ -5,7 +5,8 @@ export default {
         2: '已完成',
         3: '已取消'
     },
-    defaultList: [{
+    defaultList: [],
+    _defaultList: [{
         itemName: '测试物品1',
         itemDesc: '测试物品1的描述',
         imgUrl: 'test.png',
@@ -13,7 +14,8 @@ export default {
         itemId: '324235234',
         operateTime: (+new Date).toString()
     }],
-    //listCGI: 'http://119.29.73.170:8000/getItemList/',
-    listCGI: 'http://makto.win/cgi/itemList',
+    // listCGI: 'http://119.29.73.170:8000/getItemList/',
+    listCGI: 'http://localhost:3008/getItemList/',
+    // listCGI: 'http://makto.win/cgi/itemList',
     itemCGI: 'http://makto.win/cgi/item'
 }

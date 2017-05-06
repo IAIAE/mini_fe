@@ -26,5 +26,22 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;
+}
+.holder{
+    height: 10vh;
+}
+.footNoMore{
+  height: 50px;
+  background-color: #f8f8fa;
+  color: #4a4a4b;
+  text-shadow: 0 1px #111;
+  font-weight: 200;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 50px; 
+  font-size: 4vw;
 }

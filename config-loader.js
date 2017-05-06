@@ -46,6 +46,6 @@ module.exports = [{
       }
     }, {
       test: /\.(png|jpg|gif)$/,
-      loader: 'url?limit=65000'
+      loader: 'url-loader?limit=65000'
 }];
 

@@ -8,6 +8,9 @@ import CONSTANT from '../util/constant.js';
 
 //import {itemRoot, itemInfo, itemStatus, name ,desc, header, statusLabel} from './CareItem.scss'
 import styles from './CareItem.scss'
+const rightArrowUrl= require('assets/img/rightarrow.png');
+const defaultItemUrl = require('assets/img/defaultItem.png');
+
 
 class CareItem extends Component{
     constructor(props){
@@ -31,22 +34,28 @@ class CareItem extends Component{
         }
         return color;
     }
-
+    handleImgerr(target){
+        target.src = defaultItemUrl;
+    }
     handleClick() {
         location.href = './itemdetail.html?itemId=' + this.props.itemId;
     }
+    componentDidMount(){
+        
+    }
     render(){
         const {imgUrl, itemName, itemDesc, status, itemId, operateTime} = this.props;
-       // const rightArrowUrl= require('assets/img/rightarrow.png');
         return <div className={styles.itemRoot} onClick={this.handleClick}>
-            <img className={styles.avatar} src={imgUrl} />
+            <img className={styles.avatar} src={imgUrl} onError={(e)=>this.handleImgerr(e.currentTarget)} />
             <div className={styles.itemInfo}>
                 <div className={styles.name}>{itemName}</div>
                 <div className={styles.desc}>{itemDesc}</div>
                 <div className={ styles.itemStatus+ ' ' + styles[this.getItemStatus(status)]}><span>当前状态:</span>{CONSTANT.itemStatusMap[status]}</div>
             </div>
             <div className={styles.rightArrowContainer}>
-               <img/>
+                <div>
+                <img src={rightArrowUrl} alt=""  />
+                </div>
             </div>
         </div>
     }
