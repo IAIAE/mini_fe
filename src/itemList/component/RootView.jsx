@@ -1,16 +1,29 @@
 import {Component} from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import redux, {createStore, applyMiddleware, bindActionCreators} from 'redux'
+import {Provider, connect} from 'react-redux'
 import CONSTANT from '../util/constant.js';
 //import _ from '@tencent/util';
 // import assume from 'react-component-assume';
 import {getItemListAction} from '../action/itemListAction'
 import {showItemDetailAction, closeItemDetailActioin} from '../action/showItemDetailAction'
+import Notifications, {notify} from 'react-notify-toast';
 
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import CareItem from './CareItem.jsx'
 import {getParameterByName} from '../util/sugar.js'
+
+/**
+ * this is for subview:: ItemDetail
+ */
+import promiseMiddleware from 'redux-promise'
+import ItemDetailView from 'itemDetail/component/RootView.jsx'
+import itemDetailReducer from 'itemDetail/reducer/appReducer.js'
+
+var itemDetalStore = createStore(itemDetailReducer, applyMiddleware(promiseMiddleware));
+
+const prevent = (e) => {
+    e.stopPropagation();
+}
 
 // var AnimationView = assume(true && TodoList);
 
@@ -20,8 +33,8 @@ class RootView extends Component{
     constructor(props){
         super(props);
         this.props.getItemListAll(getParameterByName('type'));
+        this.timer=null;
     }
-
 
     componentWillMount(){
         // console.info('rootview componentWillMount');
@@ -54,20 +67,46 @@ class RootView extends Component{
     hideMask(){
         $('#mask').hide();
     }
-    renderDetail(json){
-        
+    openDetail(){
+        $('#itemDetailView').addClass('visible');
+    }
+    hideDetail(){
+        $('#itemDetailView').removeClass('visible');
+        this.hideMask();
+    }
+    renderItemDetailView(json){
+        return new Promise((done, notDone) => {
+            ReactDOM.render(
+                <Provider store={itemDetalStore}>
+                <div>
+                <ItemDetailView />
+                </div>
+                </Provider>,
+                document.getElementById('itemDetailView'),
+                done
+            );
+        })
+    }
+    clearTimer(){
+        if(this.timer){
+            clearTimeout(this.timer);
+            this.timer = null;
+        }
     }
     handleItemClick(itemId){
-        this.showLoading();
+        this.timer = setTimeout(_ => this.showLoading(), 500);
         fetch(CONSTANT.itemCGI + '?itemId=' + itemId+'&type=2')
         .then(response=>response.json())
         .then(json=>{
+            this.clearTimer()
             this.closeLoading();
             this.showMask();
-            this.renderDetail(json).then(_=>this.openDetail());
+            this.renderItemDetailView(json).then(_=>this.openDetail());
         })
         .catch(err=>{
-            alert('不能打开物品信息，请稍后再试');
+            this.clearTimer();
+            this.closeLoading();
+            alert('不能获取物品信息，请稍后再试');
         })
     }
     render(){
@@ -99,7 +138,9 @@ class RootView extends Component{
                 <li className={footNoMore}> &gt; __ &lt;   没有更多了...</li>
             </ul>
             <div id="smallLoading" className={smallLoading} style={{display:'none'}} ></div>
-            <div id="mask" className={rootStyle.mask} style={{display:'none'}}></div>
+            <div id="mask" className={rootStyle.mask} style={{display:'none'} } onClick={_=>this.hideDetail()}></div>
+            <div id="itemDetailView" className={rootStyle.itemDetailPanel} onClick={prevent}></div>
+            
         </div>
     }
 }

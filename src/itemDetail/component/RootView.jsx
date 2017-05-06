@@ -11,7 +11,7 @@ import {cancelAction} from '../action/cancelAction'
 import {getParameterByName} from '../util/sugar.js'
 // var AnimationView = assume(true && TodoList);
 
-import styles from './RootView.scss'
+
 const defaultItemUrl = require('assets/img/defaultItem.png');
 
 
@@ -77,47 +77,47 @@ class RootView extends Component{
             return <div>get data fail</div>
         }
         // fetching === 'success'
-        return <div className={styles.divmain}>
-            <div className={styles.header}>
+        return <div className={'divmain'}>
+            <div className={'header'}>
                 物品详情
             </div>
-            <div className={styles.container}>
-                <div className={styles.imageWrapper}>
+            <div className={'container'}>
+                <div className={'imageWrapper'}>
                     <img src={imgUrl} onError={(e)=>this.handleImgerr(e.currentTarget)}/>
                 </div>
-                <div className={styles.label}>物品详情</div>
-                <div className={styles.info}>
-                    <div className = {styles.infoLine}>
-                        <span className={styles.title}>物品名称:</span>
-                        <span className={styles.content}>{itemName}</span>
+                <div className={'label'}>物品详情</div>
+                <div className={'info'}>
+                    <div className = {'infoLine'}>
+                        <span className={'title'}>物品名称:</span>
+                        <span className={'content'}>{itemName}</span>
                     </div>
-                    <div className = {styles.infoLine}>
-                        <span className={styles.title}>漂流时间:</span>
-                        <span className={styles.content}>{operateTime}</span>
+                    <div className = {'infoLine'}>
+                        <span className={'title'}>漂流时间:</span>
+                        <span className={'content'}>{operateTime}</span>
                     </div>
-                    <div className = {styles.infoLine}>
-                        <span className={styles.title}>物品金额:</span>
-                        <span className={styles.content}>{operateTime}</span>
+                    <div className = {'infoLine'}>
+                        <span className={'title'}>物品金额:</span>
+                        <span className={'content'}>{operateTime}</span>
                     </div>
-                    <div className = {styles.infoLine}>
-                        <span className={styles.title}>物品状态:</span>
-                        <span className={styles[this.getItemStatus(itemStatus)]}>{CONSTANT.itemStatusMap[itemStatus]}</span>
+                    <div className = {'infoLine'}>
+                        <span className={'title'}>物品状态:</span>
+                        <span className={this.getItemStatus(itemStatus)}>{CONSTANT.itemStatusMap[itemStatus]}</span>
                     </div>
                     <div className>
-                        <span className={styles.title}>物品描述:</span>
+                        <span className={'title'}>物品描述:</span>
                     </div>
-                    <div className={styles.itemDesc}>
+                    <div className={'itemDesc'}>
                         {itemDesc}
                     </div>
                 </div>
 
-                <div className={styles.buttonWrap}>{
+                <div className={'buttonWrap'}>{
                     type == 1 ?  
-                    <a className={styles.buttonGreen} href='tel:110' onTouchStart={(e)=>this.handleTouchStart(e.currentTarget)}>联系对方</a> 
+                    <a className={'buttonGreen'} href='tel:110' onTouchStart={(e)=>this.handleTouchStart(e.currentTarget)}>联系对方</a> 
                     : 
-                    <div className={styles.buttonGroup}>
-                        <div className={styles.buttonGreen} onClick={_=>this.handleConfirm(_)}>确认</div>
-                        <div className={styles.buttonWhite} onClick={_=>this.handleCancel(_)} >取消</div>
+                    <div className={'buttonGroup'}>
+                        <div className={'buttonGreen'} onClick={_=>this.handleConfirm(_)}>确认</div>
+                        <div className={'buttonWhite'} onClick={_=>this.handleCancel(_)} >取消</div>
                     </div>
                     }
                 </div>
