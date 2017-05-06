@@ -17,5 +17,6 @@ export default {
     // listCGI: 'http://119.29.73.170:8000/getItemList/',
     listCGI: 'http://localhost:3008/getItemList/',
     // listCGI: 'http://makto.win/cgi/itemList',
-    itemCGI: 'http://makto.win/cgi/item'
+    itemCGI: 'http://localhost:3008/item/'
+    // itemCGI: 'http://makto.win/cgi/item'
 }

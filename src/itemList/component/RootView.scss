@@ -45,3 +45,49 @@ html,body{
   line-height: 50px; 
   font-size: 4vw;
 }
+
+.loading{
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: white;
+    background-image: url('../../assets/img/loading.gif');
+    background-size: 80vw 70vw;
+    background-position: 10vw 50vw;
+    background-repeat: no-repeat;
+}
+
+.failPage{
+
+}
+
+.itemDetailPanel{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: blue;
+    z-index: 1000;
+}
+
+.smallLoading{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    left: calc(50% - 50px);
+    top: 48vh;
+    background-color: blue;
+}
+
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.4);
+    z-index: 2000;
+}

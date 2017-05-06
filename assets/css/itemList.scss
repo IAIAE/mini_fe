@@ -4,3 +4,20 @@
 }
 
 
+.itemDetailRoot-appear {
+  opacity: 0.01;
+}
+
+.itemDetailRoot-appear.itemDetailRoot-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.itemDetailRoot-leave {
+  opacity: 1;
+}
+
+.itemDetailRoot-leave.itemDetailRoot-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

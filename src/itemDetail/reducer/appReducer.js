@@ -17,7 +17,7 @@ var fetching = (state = 'init', action) => {
         fetchFailCase,
         fetchSuccess
     )(state, action);
-    return nextState = false? state: nextState;
+    return nextState === false? state: nextState;
 }
 
 var appReducer = combineReducers({

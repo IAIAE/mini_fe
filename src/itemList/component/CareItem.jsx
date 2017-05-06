@@ -15,7 +15,6 @@ const defaultItemUrl = require('assets/img/defaultItem.png');
 class CareItem extends Component{
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
     }
     getItemStatus (status) {
         let color = ''
@@ -37,15 +36,12 @@ class CareItem extends Component{
     handleImgerr(target){
         target.src = defaultItemUrl;
     }
-    handleClick() {
-        location.href = './itemdetail.html?itemId=' + this.props.itemId;
-    }
     componentDidMount(){
         
     }
     render(){
-        const {imgUrl, itemName, itemDesc, status, itemId, operateTime} = this.props;
-        return <div className={styles.itemRoot} onClick={this.handleClick}>
+        const {imgUrl, itemName, itemDesc, status, itemId, operateTime, handleItemClick} = this.props;
+        return <div className={styles.itemRoot} onClick={_=>handleItemClick(itemId)}>
             <img className={styles.avatar} src={imgUrl} onError={(e)=>this.handleImgerr(e.currentTarget)} />
             <div className={styles.itemInfo}>
                 <div className={styles.name}>{itemName}</div>
