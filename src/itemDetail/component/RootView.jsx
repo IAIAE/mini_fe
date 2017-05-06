@@ -12,7 +12,7 @@ import { divmain, imageWrapper, info } from './RootView.scss'
 class RootView extends Component{
     constructor(props){
         super(props);
-        this.props.getItem(getParameterByName('_d')||'');
+        this.props.getItem(getParameterByName('itemId')||'');
     }
     componentWillMount(){
         // console.info('rootview componentWillMount');

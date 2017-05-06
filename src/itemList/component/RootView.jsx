@@ -2,6 +2,7 @@ import {Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import CONSTANT from '../util/constant.js';
+import _ from '@tencent/util';
 // import assume from 'react-component-assume';
 import {getItemListAction} from '../action/itemListAction'
 
@@ -14,8 +15,11 @@ import {divmain, header, list} from './RootView.scss'
 class RootView extends Component{
     constructor(props){
         super(props);
-        this.props.getItemListAll();
+        this.props.getItemListAll(_.query('type'));
     }
+
+
+
     componentWillMount(){
         // console.info('rootview componentWillMount');
     }
@@ -36,6 +40,7 @@ class RootView extends Component{
         // console.info('rootview componentDidUpdate');
     }
     render(){
+        const type = _.query('type');
         const {itemList, fetching} = this.props;
         if(fetching === 'fetching' || fetching === 'init'){
             return <div>fetching</div>
@@ -44,14 +49,20 @@ class RootView extends Component{
             return <div>get data fail</div>
         }
         // fetching === 'success'
-        return <div className={divmain}>
-            <div className={header}>我的心愿单</div>
+        return <div className={divmain} >
+            <div className={header}>
+                {
+                    type == 1 ? "我的心愿": "我的投放"
+                }
+            </div>
             <ul className={list}>
                 {
                 itemList.map((item, index)=>
                 <li key={index}
-                    className={null}>
-                    <CareItem {...item} />
+                    className={null}
+                   
+                    >
+                    <CareItem {...item}/>
                 </li>)
                 }
             </ul>
@@ -64,8 +75,8 @@ var mapStateToProps = (state)=>{
 };
 
 var mapDispatchToProps = (dispatch) => bindActionCreators({
-    getItemListAll(){
-        return getItemListAction(dispatch);
+    getItemListAll(type){
+        return getItemListAction(dispatch,type);
     }
 },dispatch);
 

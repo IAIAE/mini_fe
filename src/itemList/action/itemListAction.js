@@ -5,12 +5,12 @@ export const FETCH_FAIL = 'FETCH_FAIL'
 
 import CONSTANT from '../util/constant.js'
 
-export function getItemListAction(dispatch){
+export function getItemListAction(dispatch,type){
     return new Promise((done, notDone)=>{
         dispatch({
-            type: FETCHING
+            type: FETCHING,
         })
-        fetch(CONSTANT.listCGI)
+        fetch(CONSTANT.listCGI + '?type=' + type)
         .then(response=>response.json())
         .then(json=>{
           done({
