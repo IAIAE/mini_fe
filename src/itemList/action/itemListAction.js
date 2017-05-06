@@ -10,7 +10,8 @@ export function getItemListAction(dispatch,type){
         dispatch({
             type: FETCHING,
         })
-        fetch(CONSTANT.listCGI + '?type=' + type)
+        fetch(CONSTANT.listCGI + '?type=' + type, {
+        })
         .then(response=>response.json())
         .then(json=>{
           done({
@@ -19,6 +20,7 @@ export function getItemListAction(dispatch,type){
           })
         })
         .catch(err=>{
+            console.log(err);
             dispatch({
                 type: FETCH_FAIL
             })

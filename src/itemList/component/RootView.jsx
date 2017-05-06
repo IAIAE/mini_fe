@@ -19,7 +19,6 @@ class RootView extends Component{
     }
 
 
-
     componentWillMount(){
         // console.info('rootview componentWillMount');
     }
