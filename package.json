@@ -5,7 +5,7 @@
   "description": "this is a react-redux boilerplate for mini. it has favorite reducer structure for me, and has many add-ons such as: add Jest for test component of react.",
   "scripts": {
     "test": "jest",
-    "itemlist": "open -a \"/Applications/Google Chrome.app\" 'http://localhost:3008/test/itemlist.html'; DEVELOPMENT=1 webpack-dev-server --host 0.0.0.0 --port 3008 --hot --inline --progress --devtool eval --no-info",
+    "itemlist": "open -a \"/Applications/Google Chrome.app\" 'http://localhost:3008/test/itemlist.html?type=1'; DEVELOPMENT=1 webpack-dev-server --host 0.0.0.0 --port 3008 --hot --inline --progress --devtool eval --no-info",
     "itemdetail": "open -a \"/Applications/Google Chrome.app\" 'http://localhost:3008/test/itemdetail.html'; DEVELOPMENT=1 webpack-dev-server --host 0.0.0.0 --port 3008 --hot --inline --progress --devtool eval --no-info ",
     "p": "RELEASE=1 webpack --progress --colors"
   },

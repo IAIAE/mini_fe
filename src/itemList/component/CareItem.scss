@@ -5,12 +5,19 @@ body {
     border-bottom: solid lightgray 1px;
     background-color: #fff;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     height: 20vw;
     padding: 4vw 4vw;
-    img {
+    .avatar {
         height: 20vw;
         width: 20vw;
         margin-right: 2vw;
+    }
+    .rightArrow {
+        flex:1;
+        height: 20vw;
+        width: 10vw;
     }
     .itemInfo {
         display: flex;

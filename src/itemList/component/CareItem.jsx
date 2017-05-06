@@ -39,12 +39,13 @@ class CareItem extends Component{
         const {imgUrl, itemName, itemDesc, status, itemId, operateTime} = this.props;
 
         return <div className={styles.itemRoot} onClick={this.handleClick}>
-            <img src={styles.imgUrl} />
+            <img className={styles.avatar} src={imgUrl} />
             <div className={styles.itemInfo}>
                 <div className={styles.name}>{itemName}</div>
                 <div className={styles.desc}>{itemDesc}</div>
                 <div className={ styles.itemStatus+ ' ' + styles[this.getItemStatus(status)]}><span>当前状态:</span>{CONSTANT.itemStatusMap[status]}</div>
             </div>
+            <img className={styles.rightArrow} />
         </div>
     }
 } 
