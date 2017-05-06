@@ -13,8 +13,6 @@ export default {
         itemId: '324235234',
         operateTime: (+new Date).toString()
     },
-    listCGI: 'http://makto.win/cgi/itemList',
-    itemCGI: 'http://makto.win/cgi/item',
-    confirmCGI: "/confirm",
-    cancelCGI: "/cancel",
+    confirmCGI: "/cgi-bin/confirm",
+    cancelCGI: "/cgi-bin/cancel",
 }
