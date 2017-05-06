@@ -8,6 +8,7 @@ import CONSTANT from '../util/constant.js';
 
 //import {itemRoot, itemInfo, itemStatus, name ,desc, header, statusLabel} from './CareItem.scss'
 import styles from './CareItem.scss'
+import {getParameterByName} from '../util/sugar.js'
 const rightArrowUrl= require('assets/img/rightarrow.png');
 const defaultItemUrl = require('assets/img/defaultItem.png');
 
@@ -36,6 +37,7 @@ class CareItem extends Component{
     handleImgerr(target){
         target.src = defaultItemUrl;
     }
+
     componentDidMount(){
         
     }
