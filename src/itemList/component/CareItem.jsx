@@ -37,7 +37,7 @@ class CareItem extends Component{
     }
     render(){
         const {imgUrl, itemName, itemDesc, status, itemId, operateTime} = this.props;
-
+       // const rightArrowUrl= require('assets/img/rightarrow.png');
         return <div className={styles.itemRoot} onClick={this.handleClick}>
             <img className={styles.avatar} src={imgUrl} />
             <div className={styles.itemInfo}>
@@ -45,7 +45,9 @@ class CareItem extends Component{
                 <div className={styles.desc}>{itemDesc}</div>
                 <div className={ styles.itemStatus+ ' ' + styles[this.getItemStatus(status)]}><span>当前状态:</span>{CONSTANT.itemStatusMap[status]}</div>
             </div>
-            <img className={styles.rightArrow} />
+            <div className={styles.rightArrowContainer}>
+               <img/>
+            </div>
         </div>
     }
 } 

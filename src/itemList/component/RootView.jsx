@@ -2,11 +2,12 @@ import {Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import CONSTANT from '../util/constant.js';
-import _ from '@tencent/util';
+//import _ from '@tencent/util';
 // import assume from 'react-component-assume';
 import {getItemListAction} from '../action/itemListAction'
 
 import CareItem from './CareItem.jsx'
+import {getParameterByName} from '../util/sugar.js'
 
 // var AnimationView = assume(true && TodoList);
 
@@ -15,7 +16,7 @@ import {divmain, header, list} from './RootView.scss'
 class RootView extends Component{
     constructor(props){
         super(props);
-        this.props.getItemListAll(_.query('type'));
+        this.props.getItemListAll(getParameterByName('type'));
     }
 
 
@@ -39,7 +40,7 @@ class RootView extends Component{
         // console.info('rootview componentDidUpdate');
     }
     render(){
-        const type = _.query('type');
+        const type = getParameterByName('type');
         const {itemList, fetching} = this.props;
         if(fetching === 'fetching' || fetching === 'init'){
             return <div>fetching</div>
