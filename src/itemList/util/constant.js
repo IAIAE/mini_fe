@@ -2,7 +2,7 @@ export default {
     itemStatusMap: {
         0: '漂流中',
         1: '进行中',
-        2: '已完成',
+        2: '已结束',
         3: '已取消'
     },
     defaultList: [],
@@ -14,8 +14,8 @@ export default {
         itemId: '324235234',
         operateTime: (+new Date).toString()
     }],
-    // listCGI: 'http://119.29.73.170:8000/getItemList/',
-    listCGI: 'http://localhost:3008/getItemList/',
-    // listCGI: 'http://makto.win/cgi/itemList',
+    //listCGI: 'http://119.29.73.170:8000/getItemList/',
+    //listCGI: 'http://localhost:3008/getItemList/',
+    listCGI: 'http://makto.win/cgi/itemList',
     itemCGI: 'http://makto.win/cgi/item'
 }

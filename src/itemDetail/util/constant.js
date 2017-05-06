@@ -2,7 +2,7 @@ export default {
     itemStatusMap: {
         0: '漂流中',
         1: '进行中',
-        2: '已完成',
+        2: '已结束',
         3: '已取消'
     },
     defaultItem: {
@@ -14,5 +14,7 @@ export default {
         operateTime: (+new Date).toString()
     },
     listCGI: 'http://makto.win/cgi/itemList',
-    itemCGI: 'http://makto.win/cgi/item'
+    itemCGI: 'http://makto.win/cgi/item',
+    confirmCGI: "/confirm",
+    cancelCGI: "/cancel",
 }
