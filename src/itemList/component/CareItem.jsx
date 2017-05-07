@@ -42,7 +42,7 @@ class CareItem extends Component{
         
     }
     render(){
-        const {imgUrl, itemName, itemDesc, status, itemId, operateTime, countTime,
+        const {imgUrl, itemName, itemDesc, itemStatus, itemId, operateTime, countTime,
              handleItemClick} = this.props;
 
         let littleLabel = <span className={styles.littleLabel}>仅剩一小时</span>
@@ -54,7 +54,7 @@ class CareItem extends Component{
                     {countTime < 3600 && countTime > 0 && littleLabel}
                 </div>
                 <div className={styles.desc}>{itemDesc}</div>
-                <div className={ styles.itemStatus+ ' ' + styles[this.getItemStatus(status)]}><span>当前状态:</span>{CONSTANT.itemStatusMap[status]}</div>
+                <div className={ styles.itemStatus+ ' ' + styles[this.getItemStatus(itemStatus)]}><span>当前状态:</span>{CONSTANT.itemStatusMap[itemStatus]}</div>
             </div>
             <div className={styles.rightArrowContainer}>
                 <div>
