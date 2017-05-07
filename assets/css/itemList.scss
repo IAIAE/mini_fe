@@ -5,7 +5,9 @@
 html,body{
     height: 100%;
     font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+    width: 100vw;
     overflow-x: hidden;
+    position: relative;
 }
 
 #itemDetailView {

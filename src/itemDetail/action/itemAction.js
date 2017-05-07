@@ -9,7 +9,12 @@ export function getItemAction(dispatch, id){
         dispatch({
             type: FETCHING
         })
-        fetch(CONSTANT.itemCGI + '?itemId='+id)
+        fetch(CONSTANT.itemCGI + '?itemId='+id,{
+            credentials: 'include',
+            headers: {
+                  'kookie': document.cookie
+            }
+        })
         .then(response=>response.json())
         .then(json=>{
           done({

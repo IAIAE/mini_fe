@@ -90,6 +90,7 @@ class RootView extends Component{
             this.timer = null;
         }
     }
+        
     handleItemClick(itemId){
         if(!this.renderedDetail){
             ReactDOM.render(
@@ -103,7 +104,12 @@ class RootView extends Component{
             this.renderedDetail = true;
         }
         this.timer = setTimeout(_ => this.showLoading(), 500);
-        fetch(CONSTANT.itemCGI + '?itemId=' + itemId+'&type='+getParameterByName('type'))
+        fetch(CONSTANT.itemCGI + '?itemId=' + itemId+'&type='+getParameterByName('type'),{
+            credentials: 'include',
+            headers: {
+                'kookie': document.cookie
+            }
+        })
         .then(response=>response.json())
         .then(json=>{
             this.clearTimer()

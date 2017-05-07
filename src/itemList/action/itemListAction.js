@@ -11,6 +11,10 @@ export function getItemListAction(dispatch,type){
             type: FETCHING,
         })
         fetch(CONSTANT.listCGI + '?type=' + type, {
+            credentials: 'include',
+            headers: {
+                'kookie': document.cookie
+            }
         })
         .then(response=>response.json())
         .then(json=>{

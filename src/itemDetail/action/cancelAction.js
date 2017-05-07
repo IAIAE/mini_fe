@@ -11,7 +11,11 @@ export function cancelAction(dispatch, id){
         })
         fetch(CONSTANT.cancelCGI,{
             method: "POST",
-            body: "type=" + id
+            body: "type=" + id,
+            credentials: 'include',
+            headers: {
+                'kookie': document.cookie
+            }
         })
         .then(response=>response.json())
         .then(json=>{
