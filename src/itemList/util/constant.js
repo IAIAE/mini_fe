@@ -14,9 +14,9 @@ export default {
         itemId: '324235234',
         operateTime: (+new Date).toString()
     }],
-    listCGI: 'http://119.29.73.170/getItemList/',
-    // listCGI: 'http://localhost:3008/getItemList/',
+    // listCGI: 'http://119.29.73.170/getItemList/',
+    listCGI: 'http://localhost:3008/getItemList/',
     // listCGI: 'http://makto.win/cgi/itemList',
-    // itemCGI: 'http://localhost:3008/item/'
-    itemCGI: 'http://119.29.73.170/getItemDetail/'
+    itemCGI: 'http://localhost:3008/item/'
+    // itemCGI: 'http://119.29.73.170/getItemDetail/'
 }
