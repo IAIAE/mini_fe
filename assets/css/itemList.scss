@@ -11,6 +11,10 @@ html,body{
 }
 
 #itemDetailView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom:0;
     background-color: #f8f8fa;
     font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
     transform: translateX(102vw);
