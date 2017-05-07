@@ -46,7 +46,7 @@ class CareItem extends Component{
              handleItemClick} = this.props;
 
         let littleLabel = <span className={styles.littleLabel}>仅剩一小时</span>
-        return <div className={styles.itemRoot} onClick={_=>handleItemClick(itemId)}>
+        return <div className={styles.itemRoot} >
             <img className={styles.avatar} src={imgUrl} onError={(e)=>this.handleImgerr(e.currentTarget)} />
             <div className={styles.itemInfo}>
                 <div className={styles.name}>
@@ -56,7 +56,7 @@ class CareItem extends Component{
                 <div className={styles.desc}>{itemDesc}</div>
                 <div className={ styles.itemStatus+ ' ' + styles[this.getItemStatus(itemStatus)]}><span>当前状态:</span>{CONSTANT.itemStatusMap[itemStatus]}</div>
             </div>
-            <div className={styles.rightArrowContainer}>
+            <div className={styles.rightArrowContainer} onTouchStart={_=>handleItemClick(itemId)}>
                 <div>
                 <img src={rightArrowUrl} alt=""  />
                 </div>

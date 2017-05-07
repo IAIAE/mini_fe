@@ -9,9 +9,7 @@ export function cancelAction(dispatch, id){
         dispatch({
             type: FETCHING
         })
-        fetch(CONSTANT.cancelCGI,{
-            method: "POST",
-            body: "type=" + id,
+        fetch(CONSTANT.cancelCGI+'?itemId='+id,{
             credentials: 'include',
             headers: {
                 'kookie': document.cookie

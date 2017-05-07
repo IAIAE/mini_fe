@@ -9,9 +9,7 @@ export function confirmAction(dispatch, id){
         dispatch({
             type: FETCHING
         })
-        fetch(CONSTANT.confirmCGI,{
-            method: "POST",
-            body: "type=" + id,
+        fetch(CONSTANT.confirmCGI+'?itemId='+id,{
             credentials: 'include',
             headers: {
                 'kookie': document.cookie

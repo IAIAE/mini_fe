@@ -22,6 +22,8 @@ import {SET_ITEM} from 'itemDetail/action/itemAction.js'
 
 var itemDetalStore = createStore(itemDetailReducer, applyMiddleware(promiseMiddleware));
 
+var screenWidth = window.innerWidth;
+
 const prevent = (e) => {
     e.stopPropagation();
 }
@@ -71,9 +73,17 @@ class RootView extends Component{
     openDetail(){
         $('#itemDetailView').addClass('visible');
     }
-    hideDetail(){
-        $('#itemDetailView').removeClass('visible');
-        this.hideMask();
+    hideDetail(e){
+        var touchList = e.targetTouches;
+        if(touchList.length > 1){
+            return;
+        }
+        var touch = touchList[0];
+        var x = touch.pageX;
+        if(x < (screenWidth/5)){
+            $('#itemDetailView').removeClass('visible');
+            this.hideMask();
+        }
     }
     renderItemDetailView(json){
         return new Promise((done, notDone) => {
@@ -90,13 +100,19 @@ class RootView extends Component{
             this.timer = null;
         }
     }
+    afterConfirm(){
+        $('#itemDetailView').removeClass('visible');
+        this.hideMask();
+        this.renderedDetail = false;
+        this.props.getItemListAll(getParameterByName('type'));
+    }
         
     handleItemClick(itemId){
         if(!this.renderedDetail){
             ReactDOM.render(
                 <Provider store={itemDetalStore}>
                 <div>
-                <ItemDetailView />
+                <ItemDetailView afterConfirm={_=>this.afterConfirm(_)}/>
                 </div>
                 </Provider>,
                 document.getElementById('itemDetailView')
@@ -152,7 +168,7 @@ class RootView extends Component{
                 <li className={footNoMore}> &gt; __ &lt;   没有更多了...</li>
             </ul>
             <div id="smallLoading" className={smallLoading} style={{display:'none'}} ></div>
-            <div id="mask" className={rootStyle.mask} style={{display:'none'} } onClick={_=>this.hideDetail()}></div>
+            <div id="mask" className={rootStyle.mask} style={{display:'none'} } onTouchStart={_=>this.hideDetail(_)}></div>
             <div id="itemDetailView" className={rootStyle.itemDetailPanel} onClick={prevent}></div>
             
         </div>

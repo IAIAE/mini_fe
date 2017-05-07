@@ -24,10 +24,28 @@ class RootView extends Component{
         target.src = defaultItemUrl;
     }
     handleConfirm(evt){
-        this.props.confirmDeal(this.props.item.itemId);
+        fetch(CONSTANT.confirmCGI+'?itemId='+this.props.item.itemId,{
+            credentials: 'include',
+            headers: {
+                'kookie': document.cookie
+            }
+        })
+        .then(_=>{
+            this.props.afterConfirm();
+        })
+        .catch(err=>{})
     }
     handleCancel(){
-        this.props.cancelDeal(this.props.item.itemId);
+        fetch(CONSTANT.cancelCGI+'?itemId='+this.props.item.itemId,{
+            credentials: 'include',
+            headers: {
+                'kookie': document.cookie
+            }
+        })
+        .then(_=>{
+            this.props.afterConfirm();
+        })
+        .catch(err=>{})
     }
     getItemStatus (status) {
         let color = ''
@@ -119,11 +137,11 @@ class RootView extends Component{
                 <div className={'buttonWrap'}>
                     {
                         type == 1 ?  
-                        <a className={'buttonGreen'} href={'tel:'+phoneNumber} onTouchStart={(e)=>this.handleTouchStart(e.currentTarget)}>联系对方</a> 
+                        <a className={'buttonGreen'} href={'tel:'+phoneNumber} >联系对方</a> 
                         : 
                         <div className={'buttonGroup'}>
                             <div className={'buttonGreen'} onClick={_=>this.handleConfirm(_)}>确认</div>
-                            <div className={'buttonWhite'} onClick={_=>this.handleCancel(_)} >取消</div>
+                            <div className={'buttonWhite'} onClick={_=>this.handleCancel(_)} >放弃</div>
                         </div>
                     }
                 </div>
