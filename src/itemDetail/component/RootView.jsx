@@ -67,7 +67,10 @@ class RootView extends Component{
     }
     render(){
         const {item, fetching} = this.props,
-            {itemName, itemDesc, imgUrl, itemStatus, itemId, operateTime} = item;
+            {itemName, itemDesc, imgUrl,
+                 itemStatus, itemId, operateTime, sendTimestamp,
+                  bottlePrice,
+                phoneNumber} = item;
         
         const type = getParameterByName('type')||''
         if(fetching === 'fetching' || fetching === 'init'){
@@ -93,11 +96,11 @@ class RootView extends Component{
                     </div>
                     <div className = {'infoLine'}>
                         <span className={'title'}>漂流时间:</span>
-                        <span className={'content'}>{operateTime}</span>
+                        <span className={'content'}>{sendTimestamp}</span>
                     </div>
                     <div className = {'infoLine'}>
                         <span className={'title'}>物品金额:</span>
-                        <span className={'content'}>{operateTime}</span>
+                        <span className={'content'}>{bottlePrice}元</span>
                     </div>
                     <div className = {'infoLine'}>
                         <span className={'title'}>物品状态:</span>
@@ -116,7 +119,7 @@ class RootView extends Component{
                 <div className={'buttonWrap'}>
                     {
                         type == 1 ?  
-                        <a className={'buttonGreen'} href='tel:110' onTouchStart={(e)=>this.handleTouchStart(e.currentTarget)}>联系对方</a> 
+                        <a className={'buttonGreen'} href={'tel:'+phoneNumber} onTouchStart={(e)=>this.handleTouchStart(e.currentTarget)}>联系对方</a> 
                         : 
                         <div className={'buttonGroup'}>
                             <div className={'buttonGreen'} onClick={_=>this.handleConfirm(_)}>确认</div>

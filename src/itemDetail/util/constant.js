@@ -13,6 +13,6 @@ export default {
         itemId: '324235234',
         operateTime: (+new Date).toString()
     },
-    confirmCGI: "/cgi-bin/confirm",
-    cancelCGI: "/cgi-bin/cancel",
+    confirmCGI: "/confirm",
+    cancelCGI: "/cancel",
 }
