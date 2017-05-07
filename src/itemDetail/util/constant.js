@@ -1,9 +1,9 @@
 export default {
     itemStatusMap: {
-        0: '漂流中',
-        1: '进行中',
-        2: '已结束',
-        3: '已取消'
+        '-1': '漂流中',
+        0: '联系中',
+        1: '已结束',
+        2: '已取消'
     },
     defaultItem: {
         itemName: '测试物品1',

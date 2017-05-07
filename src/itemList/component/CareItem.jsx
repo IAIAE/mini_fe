@@ -42,11 +42,17 @@ class CareItem extends Component{
         
     }
     render(){
-        const {imgUrl, itemName, itemDesc, status, itemId, operateTime, handleItemClick} = this.props;
+        const {imgUrl, itemName, itemDesc, status, itemId, operateTime, countTime,
+             handleItemClick} = this.props;
+
+        let littleLabel = <span className={styles.littleLabel}>仅剩一小时</span>
         return <div className={styles.itemRoot} onClick={_=>handleItemClick(itemId)}>
             <img className={styles.avatar} src={imgUrl} onError={(e)=>this.handleImgerr(e.currentTarget)} />
             <div className={styles.itemInfo}>
-                <div className={styles.name}>{itemName}</div>
+                <div className={styles.name}>
+                    {itemName} 
+                    {countTime < 3600 && countTime > 0 && littleLabel}
+                </div>
                 <div className={styles.desc}>{itemDesc}</div>
                 <div className={ styles.itemStatus+ ' ' + styles[this.getItemStatus(status)]}><span>当前状态:</span>{CONSTANT.itemStatusMap[status]}</div>
             </div>

@@ -18,7 +18,7 @@ const defaultItemUrl = require('assets/img/defaultItem.png');
 class RootView extends Component{
     constructor(props){
         super(props);
-        this.props.getItem(getParameterByName('itemId')||'');
+        // this.props.getItem(getParameterByName('itemId')||'');
     }
     handleImgerr(target){
         target.src = defaultItemUrl;
@@ -111,16 +111,20 @@ class RootView extends Component{
                     </div>
                 </div>
 
-                <div className={'buttonWrap'}>{
-                    type == 1 ?  
-                    <a className={'buttonGreen'} href='tel:110' onTouchStart={(e)=>this.handleTouchStart(e.currentTarget)}>联系对方</a> 
-                    : 
-                    <div className={'buttonGroup'}>
-                        <div className={'buttonGreen'} onClick={_=>this.handleConfirm(_)}>确认</div>
-                        <div className={'buttonWhite'} onClick={_=>this.handleCancel(_)} >取消</div>
-                    </div>
+                {
+                itemStatus === 0 && 
+                <div className={'buttonWrap'}>
+                    {
+                        type == 1 ?  
+                        <a className={'buttonGreen'} href='tel:110' onTouchStart={(e)=>this.handleTouchStart(e.currentTarget)}>联系对方</a> 
+                        : 
+                        <div className={'buttonGroup'}>
+                            <div className={'buttonGreen'} onClick={_=>this.handleConfirm(_)}>确认</div>
+                            <div className={'buttonWhite'} onClick={_=>this.handleCancel(_)} >取消</div>
+                        </div>
                     }
                 </div>
+                }
             </div>
 
         </div>

@@ -18,6 +18,7 @@ import {getParameterByName} from '../util/sugar.js'
 import promiseMiddleware from 'redux-promise'
 import ItemDetailView from 'itemDetail/component/RootView.jsx'
 import itemDetailReducer from 'itemDetail/reducer/appReducer.js'
+import {SET_ITEM} from 'itemDetail/action/itemAction.js'
 
 var itemDetalStore = createStore(itemDetailReducer, applyMiddleware(promiseMiddleware));
 
@@ -76,15 +77,11 @@ class RootView extends Component{
     }
     renderItemDetailView(json){
         return new Promise((done, notDone) => {
-            ReactDOM.render(
-                <Provider store={itemDetalStore}>
-                <div>
-                <ItemDetailView />
-                </div>
-                </Provider>,
-                document.getElementById('itemDetailView'),
-                done
-            );
+            itemDetalStore.dispatch({
+                type: SET_ITEM,
+                payload: json
+            })
+            done('');
         })
     }
     clearTimer(){
@@ -94,8 +91,19 @@ class RootView extends Component{
         }
     }
     handleItemClick(itemId){
+        if(!this.renderedDetail){
+            ReactDOM.render(
+                <Provider store={itemDetalStore}>
+                <div>
+                <ItemDetailView />
+                </div>
+                </Provider>,
+                document.getElementById('itemDetailView')
+            );
+            this.renderedDetail = true;
+        }
         this.timer = setTimeout(_ => this.showLoading(), 500);
-        fetch(CONSTANT.itemCGI + '?itemId=' + itemId+'&type=2')
+        fetch(CONSTANT.itemCGI + '?itemId=' + itemId+'&type='+getParameterByName('type'))
         .then(response=>response.json())
         .then(json=>{
             this.clearTimer()

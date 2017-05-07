@@ -73,7 +73,13 @@
     height: 100px;
     left: calc(50% - 50px);
     top: 48vh;
-    background-color: blue;
+    background-color: white;
+    box-shadow: 0 0 50px #aaa;
+    border-radius: 10px;
+    background-image: url('../../assets/img/loading-small.gif');
+    background-position: 25px 25px;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
 }
 
 .mask{
